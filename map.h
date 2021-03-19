@@ -24,9 +24,9 @@ class Map
 {
 public:
 	Map();
-	bool worldMapContains(SDL_Point point);
-	bool collisionDetected(SDL_Point point);
-	void drawMiniMap(SDL_Renderer *renderer, SDL_Point player_pos, float player_angle);
+	bool worldMapContains(SDL_Point point) const;
+	bool collisionDetected(SDL_Point point) const;
+	void drawMiniMap(SDL_Renderer *renderer, SDL_Point player_pos, float player_angle) const;
 	TEXTURE get(SDL_Point point);
 	std::vector<SDL_Point> mini_map;
 private:

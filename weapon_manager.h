@@ -16,7 +16,7 @@ class WeaponManager
 public:
 	static WeaponManager* get(SDL_Renderer *renderer);
 	static void destroy();
-	void drawWeapon(SDL_Renderer *renderer, WeaponType type, SDL_Rect from, SDL_Rect to);
+	void drawWeapon(SDL_Renderer *renderer, WeaponType type) const;
 private:
 	static WeaponManager* instance;
 	WeaponManager(SDL_Renderer *renderer);

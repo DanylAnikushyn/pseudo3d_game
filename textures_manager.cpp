@@ -42,8 +42,15 @@ void TexturesManager::destroy()
 	instance = nullptr;
 }
 
-void TexturesManager::draw_skybox(SDL_Renderer *renderer, float angle)
+void TexturesManager::draw_background(SDL_Renderer *renderer, float angle) const
 {
+	SDL_SetRenderDrawColor(renderer, 80, 80, 80, 255);
+	SDL_Rect rect;
+	rect.w = AppConfig::windows_rect.w;
+	rect.h = AppConfig::windows_rect.h;
+	rect.x = 0;
+	rect.y = 0;
+	SDL_RenderFillRect(renderer, &rect);
 	int sky_offset = (int)(-10 * angle * (180.f / M_PI)) % AppConfig::windows_rect.w;
 	SDL_Rect rect_from;
 	rect_from.h = AppConfig::half_height;
@@ -64,7 +71,7 @@ void TexturesManager::draw_skybox(SDL_Renderer *renderer, float angle)
 	SDL_RenderCopy(renderer, textures.at((int)S), &rect_from, &rect_to);
 }
 
-void TexturesManager::draw_texture(SDL_Renderer *renderer, TEXTURE type, SDL_Rect rect_from, SDL_Rect rect_to)
+void TexturesManager::draw_texture(SDL_Renderer *renderer, TEXTURE type, SDL_Rect rect_from, SDL_Rect rect_to) const
 {
 	SDL_RenderCopy(renderer, textures.at((int)type), &rect_from, &rect_to);
 }

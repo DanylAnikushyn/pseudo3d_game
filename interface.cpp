@@ -4,7 +4,7 @@ Interface* Interface::instance = nullptr;
 
 Interface::Interface()
 {
-	font = TTF_OpenFont("fonts/mincho.ttf", 24); 
+	font = TTF_OpenFont("fonts/mincho.ttf", 24); //this opens a font style and sets a size
 	if (font == nullptr)
 	{
 		std::cerr << "TTF_OpenFont" << std::endl;
@@ -31,7 +31,7 @@ void Interface::destroy()
 	instance = nullptr;
 }
 
-void Interface::displayFPS(SDL_Renderer *renderer, int FPS)
+void Interface::displayFPS(SDL_Renderer *renderer, int FPS) const
 {
 	SDL_Color White = {255, 255, 255};
 	SDL_Surface* surfaceMessage = TTF_RenderText_Solid(font, std::to_string(FPS).c_str(), White);

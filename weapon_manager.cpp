@@ -1,5 +1,5 @@
 #include "weapon_manager.h"
-#include <iostream>
+#include "appconfig.h"
 
 std::vector<std::string> WeaponManager::pathes_to_weapons = {
 	"textures/weapon.png"
@@ -39,7 +39,11 @@ void WeaponManager::destroy()
 }
 
 
-void WeaponManager::drawWeapon(SDL_Renderer* renderer, WeaponType type, SDL_Rect from, SDL_Rect to)
+void WeaponManager::drawWeapon(SDL_Renderer* renderer, WeaponType type) const
 {
+	SDL_Rect from;
+	from.w = 1157; from.h = 495; from.x = 0; from.y = 0;
+	SDL_Rect to;
+	to.w = 900; to.h = 400; to.x = 300; to.y = AppConfig::windows_rect.h - to.h + 100; 
 	SDL_RenderCopy(renderer, weapons.at((int)type), &from, &to);
 }

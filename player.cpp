@@ -9,17 +9,17 @@ Player::Player()
     angle = AppConfig::player_angle; 
 }
 
-Vector2f Player::getPosition()
+Vector2f Player::getPosition() const
 {
   	return pos;
 }
 
-float Player::getAngle()
+float Player::getAngle() const 
 {
   	return angle;
 }
 
-void Player::move(Map *map)
+void Player::move(const Map *const map)
 {
   	const Uint8 *keys = SDL_GetKeyboardState(NULL);
   	float sin_a = std::sin(angle);

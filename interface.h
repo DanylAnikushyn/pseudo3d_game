@@ -14,7 +14,7 @@ class Interface
 public:
 	static Interface* get();
 	static void destroy();
-	void displayFPS(SDL_Renderer *renderer, int FPS);
+	void displayFPS(SDL_Renderer *renderer, int FPS) const;
 
 	Interface(Interface &other) = delete;
 	void operator=(const Interface &) = delete;

@@ -31,7 +31,7 @@ Map::Map()
 	}
 }
 
-bool Map::worldMapContains(SDL_Point point)
+bool Map::worldMapContains(SDL_Point point) const
 {
 	for (auto pair : world_map)
 	{
@@ -43,7 +43,7 @@ bool Map::worldMapContains(SDL_Point point)
 	return false;
 }
 
-bool Map::collisionDetected(SDL_Point point)
+bool Map::collisionDetected(SDL_Point point) const
 {
 	for (auto p : world_map)
 	{
@@ -54,7 +54,7 @@ bool Map::collisionDetected(SDL_Point point)
 	return false;
 }
 
-void Map::drawMiniMap(SDL_Renderer *renderer, SDL_Point player_pos, float player_angle)
+void Map::drawMiniMap(SDL_Renderer *renderer, SDL_Point player_pos, float player_angle) const
 {
 	SDL_Rect minimap_rect;
 	minimap_rect.w = std::floor(AppConfig::windows_rect.w / AppConfig::map_scale);

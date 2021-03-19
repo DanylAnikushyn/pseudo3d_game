@@ -10,9 +10,9 @@ class Player
 {
 public:
 	Player();
-	Vector2f getPosition();
-	float getAngle();
-	void move(Map *map);
+	Vector2f getPosition() const;
+	float getAngle() const;
+	void move(const Map *const map);
 private:
 	Vector2f pos;
 	float angle;
